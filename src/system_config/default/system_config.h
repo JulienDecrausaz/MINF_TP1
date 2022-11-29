@@ -57,6 +57,7 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 /*  This section Includes other configuration headers necessary to completely
     define this configuration.
 */
+#include "bsp.h"
 
 
 // DOM-IGNORE-BEGIN
@@ -84,13 +85,41 @@ extern "C" {
 #define SYS_CLK_FREQ                        80000000ul
 #define SYS_CLK_BUS_PERIPHERAL_1            80000000ul
 #define SYS_CLK_UPLL_BEFORE_DIV2_FREQ       48000000ul
-#define SYS_CLK_CONFIG_PRIMARY_XTAL         0ul
-#define SYS_CLK_CONFIG_SECONDARY_XTAL       32768ul
+#define SYS_CLK_CONFIG_PRIMARY_XTAL         8000000ul
+#define SYS_CLK_CONFIG_SECONDARY_XTAL       0ul
    
 /*** Ports System Service Configuration ***/
-#define SYS_PORT_AD1PCFG        ~0xffff
+#define SYS_PORT_AD1PCFG        ~0x38c3
 #define SYS_PORT_CNPUE          0x0
 #define SYS_PORT_CNEN           0x0
+#define SYS_PORT_A_TRIS         0x7F0C
+#define SYS_PORT_A_LAT          0x80C0
+#define SYS_PORT_A_ODC          0x0000
+
+#define SYS_PORT_B_TRIS         0xFAFF
+#define SYS_PORT_B_LAT          0x0400
+#define SYS_PORT_B_ODC          0x0000
+
+#define SYS_PORT_C_TRIS         0xFFF9
+#define SYS_PORT_C_LAT          0x0000
+#define SYS_PORT_C_ODC          0x0000
+
+#define SYS_PORT_D_TRIS         0x4DC7
+#define SYS_PORT_D_LAT          0x8238
+#define SYS_PORT_D_ODC          0x0000
+
+#define SYS_PORT_E_TRIS         0xFFF0
+#define SYS_PORT_E_LAT          0x0000
+#define SYS_PORT_E_ODC          0x0000
+
+#define SYS_PORT_F_TRIS         0xDFFF
+#define SYS_PORT_F_LAT          0x2000
+#define SYS_PORT_F_ODC          0x0000
+
+#define SYS_PORT_G_TRIS         0xFFFC
+#define SYS_PORT_G_LAT          0x0002
+#define SYS_PORT_G_ODC          0x0000
+
 
 /*** Interrupt System Service Configuration ***/
 #define SYS_INT                     true
@@ -100,13 +129,72 @@ extern "C" {
 // Section: Driver Configuration
 // *****************************************************************************
 // *****************************************************************************
+#define DRV_OC_DRIVER_MODE_STATIC 
+/*** Timer Driver Configuration ***/
+#define DRV_TMR_INTERRUPT_MODE             true
 
+/*** Timer Driver 0 Configuration ***/
+#define DRV_TMR_PERIPHERAL_ID_IDX0          TMR_ID_1
+#define DRV_TMR_INTERRUPT_SOURCE_IDX0       INT_SOURCE_TIMER_1
+#define DRV_TMR_INTERRUPT_VECTOR_IDX0       INT_VECTOR_T1
+#define DRV_TMR_ISR_VECTOR_IDX0             _TIMER_1_VECTOR
+#define DRV_TMR_INTERRUPT_PRIORITY_IDX0     INT_PRIORITY_LEVEL4
+#define DRV_TMR_INTERRUPT_SUB_PRIORITY_IDX0 INT_SUBPRIORITY_LEVEL0
+#define DRV_TMR_CLOCK_SOURCE_IDX0           DRV_TMR_CLKSOURCE_INTERNAL
+#define DRV_TMR_PRESCALE_IDX0               TMR_PRESCALE_VALUE_64
+#define DRV_TMR_OPERATION_MODE_IDX0         DRV_TMR_OPERATION_MODE_16_BIT
+#define DRV_TMR_ASYNC_WRITE_ENABLE_IDX0     false
+#define DRV_TMR_POWER_STATE_IDX0            
+
+#define DRV_TMR_PERIPHERAL_ID_IDX1          TMR_ID_2
+#define DRV_TMR_INTERRUPT_SOURCE_IDX1       INT_SOURCE_TIMER_2
+#define DRV_TMR_INTERRUPT_VECTOR_IDX1       INT_VECTOR_T2
+#define DRV_TMR_ISR_VECTOR_IDX1             _TIMER_2_VECTOR
+#define DRV_TMR_INTERRUPT_PRIORITY_IDX1     INT_DISABLE_INTERRUPT
+#define DRV_TMR_INTERRUPT_SUB_PRIORITY_IDX1 INT_SUBPRIORITY_LEVEL0
+#define DRV_TMR_CLOCK_SOURCE_IDX1           DRV_TMR_CLKSOURCE_INTERNAL
+#define DRV_TMR_PRESCALE_IDX1               TMR_PRESCALE_VALUE_1
+#define DRV_TMR_OPERATION_MODE_IDX1         DRV_TMR_OPERATION_MODE_16_BIT
+
+#define DRV_TMR_ASYNC_WRITE_ENABLE_IDX1     false
+#define DRV_TMR_POWER_STATE_IDX1            
+/*** Timer Driver 2 Configuration ***/
+#define DRV_TMR_PERIPHERAL_ID_IDX2          TMR_ID_3
+#define DRV_TMR_INTERRUPT_SOURCE_IDX2       INT_SOURCE_TIMER_3
+#define DRV_TMR_INTERRUPT_VECTOR_IDX2       INT_VECTOR_T3
+#define DRV_TMR_ISR_VECTOR_IDX2             _TIMER_3_VECTOR
+#define DRV_TMR_INTERRUPT_PRIORITY_IDX2     INT_DISABLE_INTERRUPT
+#define DRV_TMR_INTERRUPT_SUB_PRIORITY_IDX2 INT_SUBPRIORITY_LEVEL0
+#define DRV_TMR_CLOCK_SOURCE_IDX2           DRV_TMR_CLKSOURCE_INTERNAL
+#define DRV_TMR_PRESCALE_IDX2               TMR_PRESCALE_VALUE_16
+#define DRV_TMR_OPERATION_MODE_IDX2         DRV_TMR_OPERATION_MODE_16_BIT
+#define DRV_TMR_ASYNC_WRITE_ENABLE_IDX2     false
+#define DRV_TMR_POWER_STATE_IDX2            
+/*** Timer Driver 3 Configuration ***/
+#define DRV_TMR_PERIPHERAL_ID_IDX3          TMR_ID_4
+#define DRV_TMR_INTERRUPT_SOURCE_IDX3       INT_SOURCE_TIMER_4
+#define DRV_TMR_INTERRUPT_VECTOR_IDX3       INT_VECTOR_T4
+#define DRV_TMR_ISR_VECTOR_IDX3             _TIMER_4_VECTOR
+#define DRV_TMR_INTERRUPT_PRIORITY_IDX3     INT_PRIORITY_LEVEL4
+#define DRV_TMR_INTERRUPT_SUB_PRIORITY_IDX3 INT_SUBPRIORITY_LEVEL0
+#define DRV_TMR_CLOCK_SOURCE_IDX3           DRV_TMR_CLKSOURCE_INTERNAL
+#define DRV_TMR_PRESCALE_IDX3               TMR_PRESCALE_VALUE_1
+#define DRV_TMR_OPERATION_MODE_IDX3         DRV_TMR_OPERATION_MODE_16_BIT
+#define DRV_TMR_ASYNC_WRITE_ENABLE_IDX3     false
+#define DRV_TMR_POWER_STATE_IDX3            
+
+
+ 
 // *****************************************************************************
 // *****************************************************************************
 // Section: Middleware & Other Library Configuration
 // *****************************************************************************
 // *****************************************************************************
 
+// *****************************************************************************
+/* BSP Configuration Options
+*/
+#define BSP_OSC_FREQUENCY 8000000
 
 
 // *****************************************************************************

@@ -8,7 +8,15 @@
         <logicalFolder name="f1" displayName="system_config" projectFiles="true">
           <logicalFolder name="f1" displayName="default" projectFiles="true">
             <logicalFolder name="f1" displayName="framework" projectFiles="true">
-              <logicalFolder name="f1" displayName="system" projectFiles="true">
+              <logicalFolder name="f1" displayName="driver" projectFiles="true">
+                <logicalFolder name="f1" displayName="oc" projectFiles="true">
+                  <itemPath>../src/system_config/default/framework/driver/oc/drv_oc_static.h</itemPath>
+                </logicalFolder>
+                <logicalFolder name="f2" displayName="tmr" projectFiles="true">
+                  <itemPath>../src/system_config/default/framework/driver/tmr/drv_tmr_static.h</itemPath>
+                </logicalFolder>
+              </logicalFolder>
+              <logicalFolder name="f2" displayName="system" projectFiles="true">
                 <logicalFolder name="f1" displayName="devcon" projectFiles="true">
                   <logicalFolder name="f1" displayName="src" projectFiles="true">
                     <itemPath>../src/system_config/default/framework/system/devcon/src/sys_devcon_local.h</itemPath>
@@ -23,13 +31,39 @@
         </logicalFolder>
         <itemPath>../src/app.h</itemPath>
       </logicalFolder>
+      <logicalFolder name="f3" displayName="bsp" projectFiles="true">
+        <logicalFolder name="f1" displayName="pic32mx_skes" projectFiles="true">
+          <itemPath>../../../../../../bsp/pic32mx_skes/bsp.h</itemPath>
+          <itemPath>../../../../../../bsp/pic32mx_skes/Mc32Delays.h</itemPath>
+          <itemPath>../../../../../../bsp/pic32mx_skes/Mc32DriverAdc.h</itemPath>
+          <itemPath>../../../../../../bsp/pic32mx_skes/Mc32DriverAdcAlt.h</itemPath>
+          <itemPath>../../../../../../bsp/pic32mx_skes/Mc32DriverLcd.h</itemPath>
+          <itemPath>../../../../../../bsp/pic32mx_skes/Mc32CoreTimer.h</itemPath>
+        </logicalFolder>
+      </logicalFolder>
       <logicalFolder name="f1" displayName="framework" projectFiles="true">
-        <logicalFolder name="f1" displayName="osal" projectFiles="true">
+        <logicalFolder name="f1" displayName="driver" projectFiles="true">
+          <logicalFolder name="f1" displayName="oc" projectFiles="true">
+            <itemPath>../../../../../../framework/driver/oc/drv_oc.h</itemPath>
+          </logicalFolder>
+          <logicalFolder name="f2" displayName="tmr" projectFiles="true">
+            <logicalFolder name="f1" displayName="src" projectFiles="true">
+              <itemPath>../../../../../../framework/driver/tmr/src/drv_tmr_variant_mapping.h</itemPath>
+            </logicalFolder>
+            <itemPath>../../../../../../framework/driver/tmr/drv_tmr.h</itemPath>
+            <itemPath>../../../../../../framework/driver/tmr/drv_tmr_mapping.h</itemPath>
+            <itemPath>../../../../../../framework/driver/tmr/drv_tmr_compatibility.h</itemPath>
+            <itemPath>../../../../../../framework/driver/tmr/tmr_definitions_pic32m.h</itemPath>
+          </logicalFolder>
+          <itemPath>../../../../../../framework/driver/driver.h</itemPath>
+          <itemPath>../../../../../../framework/driver/driver_common.h</itemPath>
+        </logicalFolder>
+        <logicalFolder name="f2" displayName="osal" projectFiles="true">
           <itemPath>../../../../../../framework/osal/osal.h</itemPath>
           <itemPath>../../../../../../framework/osal/osal_definitions.h</itemPath>
           <itemPath>../../../../../../framework/osal/osal_impl_basic.h</itemPath>
         </logicalFolder>
-        <logicalFolder name="f2" displayName="system" projectFiles="true">
+        <logicalFolder name="f3" displayName="system" projectFiles="true">
           <logicalFolder name="f2" displayName="clk" projectFiles="true">
             <itemPath>../../../../../../framework/system/clk/sys_clk.h</itemPath>
             <itemPath>../../../../../../framework/system/clk/sys_clk_compatibility.h</itemPath>
@@ -58,6 +92,7 @@
           <itemPath>../../../../../../framework/system/system.h</itemPath>
         </logicalFolder>
       </logicalFolder>
+      <itemPath>../src/gestPWM.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -70,7 +105,21 @@
         <logicalFolder name="f1" displayName="system_config" projectFiles="true">
           <logicalFolder name="f1" displayName="default" projectFiles="true">
             <logicalFolder name="f1" displayName="framework" projectFiles="true">
-              <logicalFolder name="f1" displayName="system" projectFiles="true">
+              <logicalFolder name="f1" displayName="driver" projectFiles="true">
+                <logicalFolder name="f1" displayName="oc" projectFiles="true">
+                  <logicalFolder name="f1" displayName="src" projectFiles="true">
+                    <itemPath>../src/system_config/default/framework/driver/oc/src/drv_oc_mapping.c</itemPath>
+                    <itemPath>../src/system_config/default/framework/driver/oc/src/drv_oc_static.c</itemPath>
+                  </logicalFolder>
+                </logicalFolder>
+                <logicalFolder name="f2" displayName="tmr" projectFiles="true">
+                  <logicalFolder name="f1" displayName="src" projectFiles="true">
+                    <itemPath>../src/system_config/default/framework/driver/tmr/src/drv_tmr_static.c</itemPath>
+                    <itemPath>../src/system_config/default/framework/driver/tmr/src/drv_tmr_mapping.c</itemPath>
+                  </logicalFolder>
+                </logicalFolder>
+              </logicalFolder>
+              <logicalFolder name="f2" displayName="system" projectFiles="true">
                 <logicalFolder name="f1" displayName="clk" projectFiles="true">
                   <logicalFolder name="f1" displayName="src" projectFiles="true">
                     <itemPath>../src/system_config/default/framework/system/clk/src/sys_clk_pic32mx.c</itemPath>
@@ -98,6 +147,16 @@
         <itemPath>../src/app.c</itemPath>
         <itemPath>../src/main.c</itemPath>
       </logicalFolder>
+      <logicalFolder name="f3" displayName="bsp" projectFiles="true">
+        <logicalFolder name="f1" displayName="pic32mx_skes" projectFiles="true">
+          <itemPath>../../../../../../bsp/pic32mx_skes/bsp.c</itemPath>
+          <itemPath>../../../../../../bsp/pic32mx_skes/Mc32Delays.c</itemPath>
+          <itemPath>../../../../../../bsp/pic32mx_skes/Mc32DriverAdc.c</itemPath>
+          <itemPath>../../../../../../bsp/pic32mx_skes/Mc32DriverAdcAlt.c</itemPath>
+          <itemPath>../../../../../../bsp/pic32mx_skes/Mc32DriverLcd.c</itemPath>
+          <itemPath>../../../../../../bsp/pic32mx_skes/Mc32CoreTimer.c</itemPath>
+        </logicalFolder>
+      </logicalFolder>
       <logicalFolder name="f1" displayName="framework" projectFiles="true">
         <logicalFolder name="f1" displayName="system" projectFiles="true">
           <logicalFolder name="f1" displayName="int" projectFiles="true">
@@ -107,6 +166,7 @@
           </logicalFolder>
         </logicalFolder>
       </logicalFolder>
+      <itemPath>../src/gestPWM.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -131,7 +191,7 @@
         <targetPluginBoard></targetPluginBoard>
         <platformTool>PICkit3PlatformTool</platformTool>
         <languageToolchain>XC32</languageToolchain>
-        <languageToolchainVersion>1.42</languageToolchainVersion>
+        <languageToolchainVersion>2.50</languageToolchainVersion>
         <platform>3</platform>
       </toolsSet>
       <packs>
@@ -173,7 +233,7 @@
         <property key="enable-unroll-loops" value="false"/>
         <property key="exclude-floating-point" value="false"/>
         <property key="extra-include-directories"
-                  value="../src;../src/system_config/default;../src/default;../../../../../../framework;../src/system_config/default/framework"/>
+                  value="../src;../src/system_config/default;../src/default;../../../../../../framework;../src/system_config/default/framework;../../../../../../bsp/pic32mx_skes"/>
         <property key="generate-16-bit-code" value="false"/>
         <property key="generate-micro-compressed-code" value="false"/>
         <property key="isolate-each-function" value="true"/>
@@ -195,6 +255,9 @@
       <C32-AS>
         <property key="generate-micro-compressed-code" value="false"/>
       </C32-AS>
+      <C32-CO>
+        <property key="coverage-enable" value=""/>
+      </C32-CO>
       <C32-LD>
         <property key="additional-options-use-response-files" value="false"/>
         <property key="enable-check-sections" value="false"/>

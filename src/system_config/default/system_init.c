@@ -67,10 +67,10 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 
 /*** DEVCFG1 ***/
 
-#pragma config FNOSC =      FRCPLL
+#pragma config FNOSC =      PRIPLL
 #pragma config FSOSCEN =    ON
 #pragma config IESO =       ON
-#pragma config POSCMOD =    OFF
+#pragma config POSCMOD =    XT
 #pragma config OSCIOFNC =   OFF
 #pragma config FPBDIV =     DIV_1
 #pragma config FCKSM =      CSECMD
@@ -82,12 +82,12 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 #pragma config FPLLMUL =    MUL_20
 #pragma config FPLLODIV =   DIV_1
 #pragma config UPLLIDIV =   DIV_2
-#pragma config UPLLEN =     OFF
+#pragma config UPLLEN =     ON
 /*** DEVCFG3 ***/
 
 #pragma config USERID =     0xffff
 #pragma config FSRSSEL =    PRIORITY_7
-#pragma config FMIIEN =     ON
+#pragma config FMIIEN =     OFF
 #pragma config FETHIO =     ON
 #pragma config FCANIO =     ON
 #pragma config FUSBIDIO =   ON
@@ -146,8 +146,23 @@ void SYS_Initialize ( void* data )
     SYS_DEVCON_PerformanceConfig(SYS_CLK_SystemFrequencyGet());
     SYS_DEVCON_JTAGDisable();
 
-    /* Initialize Drivers */
+    /* Board Support Package Initialization */
+    BSP_Initialize();        
 
+    /* Initialize Drivers */
+    /* Initialize the OC Driver */
+    DRV_OC0_Initialize();
+    DRV_OC1_Initialize();
+    /*Initialize TMR0 */
+    DRV_TMR0_Initialize();
+    /*Initialize TMR1 */
+    DRV_TMR1_Initialize();
+    /*Initialize TMR2 */
+    DRV_TMR2_Initialize();
+    /*Initialize TMR3 */
+    DRV_TMR3_Initialize();
+ 
+ 
     /* Initialize System Services */
     SYS_PORTS_Initialize();
 
