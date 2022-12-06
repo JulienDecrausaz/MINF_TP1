@@ -149,7 +149,7 @@ void APP_Tasks ( void )
 		
             if (appInitialized)
             {
-            
+                // Commentaire de test
                 appData.state = APP_STATE_SERVICE_TASKS;
             }
             break;
