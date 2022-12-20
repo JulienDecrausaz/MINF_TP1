@@ -78,10 +78,9 @@ void __ISR(_TIMER_1_VECTOR, ipl4AUTO) IntHandlerDrvTmrInstance0(void)
 {
     // Compteur pour l'initialisation
     static uint8_t initCnt = 0;
-    // Flag pour initialisation
-    //static ST_BIT bitInit;
-    //bitInit.Flag = SET_FLAG;
     
+    BSP_LEDOn(BSP_LED_0);
+    // Reset flag Timer 1
     PLIB_INT_SourceFlagClear(INT_ID_0,INT_SOURCE_TIMER_1);
     
     if(initCnt < INIT_TIME)
@@ -90,11 +89,12 @@ void __ISR(_TIMER_1_VECTOR, ipl4AUTO) IntHandlerDrvTmrInstance0(void)
     }
     else
     {
+        APP_UpdateState(APP_STATE_SERVICE_TASKS);
         GPWM_GetSettings(&PWMData);
         GPWM_DispSettings(&PWMData);
         GPWM_ExecPWM(&PWMData);
     }
-    
+    BSP_LEDOff(BSP_LED_0);
     
 }
 void __ISR(_TIMER_2_VECTOR, ipl0AUTO) IntHandlerDrvTmrInstance1(void)
@@ -105,12 +105,13 @@ void __ISR(_TIMER_3_VECTOR, ipl0AUTO) IntHandlerDrvTmrInstance2(void)
 {
     PLIB_INT_SourceFlagClear(INT_ID_0,INT_SOURCE_TIMER_3);
 }
-void __ISR(_TIMER_4_VECTOR, ipl4AUTO) IntHandlerDrvTmrInstance3(void)
+void __ISR(_TIMER_4_VECTOR, ipl7AUTO) IntHandlerDrvTmrInstance3(void)
 {
     PLIB_INT_SourceFlagClear(INT_ID_0,INT_SOURCE_TIMER_4);
-    
+    BSP_LEDOn(BSP_LED_1);
     // 
     GPWM_ExecPWMSoft(&PWMData);
+    BSP_LEDOff(BSP_LED_1);
 }
  /*******************************************************************************
  End of File

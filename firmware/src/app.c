@@ -162,11 +162,14 @@ void APP_Tasks ( void )
         /* Application's initial state. */
         case APP_STATE_INIT:
         {
-            //Initialisation du LCD
+            //Initialisation du LCD avec backlight allumé
             lcd_init();
             lcd_bl_on();
                
-            //Affichage initial
+            //Affichage initial, exemple :
+            // Line 1 : TP1 pWM 2022-2023
+            // Line 2 : Julien Decrausaz
+            // Line 3 : Einar Farinas
             lcd_gotoxy(1,1); //  (COLONNE, LIGNE)
             printf_lcd("TP1 PWM 2022-2023");
             lcd_gotoxy(1,2);
@@ -176,28 +179,16 @@ void APP_Tasks ( void )
 
             //Initialisation de l'AD
             BSP_InitADC10();
-
-            //Start des OCs
-            DRV_OC0_Start();
-            DRV_OC1_Start();
-
-            //Start des timers
-            DRV_TMR0_Start();
-            DRV_TMR1_Start();
-            DRV_TMR2_Start();
-            DRV_TMR3_Start();
-
-            //Eteindre les LEDs
+            
+            //Eteindre toutes les LEDs
             for (i = 0; i < 8; i++)
             {
                 BSP_LEDOff(Tab_LEDS[i]);
             }
-
-            //Appel des fonctions
+                   
+            // Initialisation des Timers OCs et activation du pont H
             GPWM_Initialize(&PWMData);
-            BSP_EnableHbrige();
-                
-                
+            
             appData.state = APP_STATE_WAIT;
             break;
         }
@@ -224,6 +215,11 @@ void APP_Tasks ( void )
             break;
         }
     }
+}
+
+void APP_UpdateState(APP_STATES newState) 
+{
+    appData.state = newState;
 }
 
  

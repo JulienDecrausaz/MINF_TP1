@@ -170,7 +170,7 @@
       <Template dnOrder="0">
         <Name dnOrder="0">drv_oc_static.c</Name>
         <Path dnOrder="1">Source&amp;#160;Files/app/system_config/default/framework/driver/oc/src</Path>
-        <Checksum dnOrder="2">5FF954CBFF9CD3A0301781B5D9ED20E8</Checksum>
+        <Checksum dnOrder="2">C14BD794D052E44325148A3769540E09</Checksum>
       </Template>
       <Template dnOrder="1">
         <Name dnOrder="0">sys_ports_static.c</Name>
@@ -243,7 +243,7 @@
       <Template dnOrder="15">
         <Name dnOrder="0">system_config.h</Name>
         <Path dnOrder="1">Header&amp;#160;Files/app/system_config/default</Path>
-        <Checksum dnOrder="2">7E137F997A2832CA0B522A19150F92E9</Checksum>
+        <Checksum dnOrder="2">7B38E88E738AFBFE7AAAA31E91C9BF09</Checksum>
       </Template>
       <Template dnOrder="16">
         <Name dnOrder="0">app.h</Name>
@@ -252,13 +252,13 @@
       <Template dnOrder="17">
         <Name dnOrder="0">drv_tmr_static.c</Name>
         <Path dnOrder="1">Source&amp;#160;Files/app/system_config/default/framework/driver/tmr/src</Path>
-        <Checksum dnOrder="2">4C4700F29E34D2EE10CB6C70851F8861</Checksum>
+        <Checksum dnOrder="2">19B74F75E635F94D259E5E1BB6AF0A0E</Checksum>
       </Template>
       <Template dnOrder="18">
         <Name dnOrder="0">system_interrupt.c</Name>
         <Path dnOrder="1">Source&amp;#160;Files/app/system_config/default</Path>
-        <Checksum dnOrder="2">AFB335AF6DBCF489724E9812468AE10A</Checksum>
-        <ProjectFileChecksum dnOrder="3">02C886902979C99184D65F2BE60BA86C</ProjectFileChecksum>
+        <Checksum dnOrder="2">1216398F7D468FA1630EB867904772E2</Checksum>
+        <ProjectFileChecksum dnOrder="3">7220DF9282D17AE992D341582A51D44C</ProjectFileChecksum>
       </Template>
       <Template dnOrder="19">
         <Name dnOrder="0">drv_oc_mapping.c</Name>
@@ -273,11 +273,11 @@
     </Templates>
     <CompilerItems dnOrder="2">
       <C32 dnOrder="0">
-        <Include dnOrder="0" value="C:\microchip\harmony\v2_06\apps\MINF\TP\TP1_TimerPWM\firmware\src"/>
-        <Include dnOrder="1" value="C:\microchip\harmony\v2_06\apps\MINF\TP\TP1_TimerPWM\firmware\src\system_config\default"/>
-        <Include dnOrder="2" value="C:\microchip\harmony\v2_06\apps\MINF\TP\TP1_TimerPWM\firmware\src\default"/>
+        <Include dnOrder="0" value="C:\microchip\harmony\v2_06\apps\MINF\TP\TP1_PWM\firmware\src"/>
+        <Include dnOrder="1" value="C:\microchip\harmony\v2_06\apps\MINF\TP\TP1_PWM\firmware\src\system_config\default"/>
+        <Include dnOrder="2" value="C:\microchip\harmony\v2_06\apps\MINF\TP\TP1_PWM\firmware\src\default"/>
         <Include dnOrder="3" value="C:\microchip\harmony\v2_06\framework"/>
-        <Include dnOrder="4" value="C:\microchip\harmony\v2_06\apps\MINF\TP\TP1_TimerPWM\firmware\src\system_config\default\framework"/>
+        <Include dnOrder="4" value="C:\microchip\harmony\v2_06\apps\MINF\TP\TP1_PWM\firmware\src\system_config\default\framework"/>
         <Include dnOrder="5" value="../../../../../../bsp/pic32mx_skes"/>
       </C32>
     </CompilerItems>

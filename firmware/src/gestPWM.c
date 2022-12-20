@@ -17,17 +17,28 @@
 #include "Mc32DriverLcd.h"
 #include "Mc32DriverAdc.h"
 #include "bsp.h"
+#include "driver/oc/drv_oc_static.h"
+#include "driver/tmr/drv_tmr_static.h"
 
 S_pwmSettings PWMData;      // pour les settings
 
 void GPWM_Initialize(S_pwmSettings *pData)
 {
-   // Init les data 
+    // Init les data 
     
-   // Init état du pont en H
-    
-   // lance les timers et OC
-    
+    // Init état du pont en H
+    BSP_EnableHbrige();
+    // Lancement des timers et OC
+    // Start des OCs
+    DRV_OC0_Start();
+    DRV_OC1_Start();
+
+    // Start des timers
+    DRV_TMR0_Start();
+    DRV_TMR1_Start();
+    DRV_TMR2_Start();
+    DRV_TMR3_Start();
+   
 }
 
 // Obtention vitesse et angle (mise a jour des 4 champs de la structure)
@@ -132,15 +143,16 @@ void GPWM_ExecPWM(S_pwmSettings *pData)
     }
     
     // Calcul pour la conversion de la valeur de pData.absSpeed en %
-    OC2_DutyCycle = (((float)pData -> absSpeed * (float)65535) / (float)100) 
+    OC2_DutyCycle = (( (float)1999 / (float)100) * (float)pData -> absSpeed)
             + 0.5;
     DRV_OC0_PulseWidthSet(OC2_DutyCycle);
     
     // Calcul pour la conversion de la valeur de pData.absSpeed en nombre
     // d'impulsions
-    OC3_DutyCycle = (((float)pData -> absAngle * (float)65535) / (float)180) 
-            + 0.5;
-     DRV_OC1_PulseWidthSet(OC3_DutyCycle);
+    OC3_DutyCycle = (((float)8999 / (float)180) * (float)pData -> absAngle)
+            + 3000.5;
+    DRV_OC1_PulseWidthSet(OC3_DutyCycle);
+    //DRV_OC1_CompareValuesDualSet(OC3_DutyCycle, 2999 );
 }
 
 // Execution PWM software
@@ -151,7 +163,14 @@ void GPWM_ExecPWMSoft(S_pwmSettings *pData)
     
     PWM_Cnt = (PWM_Cnt + 1) % 100;
    
-    
+    if ( PWM_Cnt < pData->absSpeed)
+    {
+        BSP_LEDOn(BSP_LED_2);
+    }
+    else
+    {
+        BSP_LEDOff(BSP_LED_2);
+    }
 }
 
 
