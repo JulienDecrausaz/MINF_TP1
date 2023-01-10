@@ -130,27 +130,30 @@ void GPWM_ExecPWM(S_pwmSettings *pData)
     // Bit8 de pData.SpeedSetting = au signe de la vitesse
     // Masquage du bit8 dans pData.SpeedSetting pour savoir la direction
     // Si bit8 = 1 -> direction CCW , sinon direction CW
-    if((pData -> SpeedSetting & 0x80) != 0)
+    if(pData -> SpeedSetting > 0)
     {
-        
-        AIN1_HBRIDGE_W = 0;   //AIN1 High
-        AIN2_HBRIDGE_W = 1;
+        PLIB_PORTS_PinClear( PORTS_ID_0, PORT_CHANNEL_D, AIN1_HBRIDGE_BIT);
+        PLIB_PORTS_PinSet( PORTS_ID_0, PORT_CHANNEL_D, AIN2_HBRIDGE_BIT);
+        //AIN1_HBRIDGE_W = 0;   //AIN1 High
+        //AIN2_HBRIDGE_W = 1;
     }
     else
     {
-        AIN1_HBRIDGE_W = 1;   //AIN1 High
-        AIN2_HBRIDGE_W = 0;
+        PLIB_PORTS_PinSet( PORTS_ID_0, PORT_CHANNEL_D, AIN1_HBRIDGE_BIT);
+        PLIB_PORTS_PinClear( PORTS_ID_0, PORT_CHANNEL_D, AIN2_HBRIDGE_BIT);
+        //AIN1_HBRIDGE_W = 1;   //AIN1 High
+        //AIN2_HBRIDGE_W = 0;
     }
     
     // Calcul pour la conversion de la valeur de pData.absSpeed en %
-    OC2_DutyCycle = (( (float)1999 / (float)100) * (float)pData -> absSpeed)
-            + 0.5;
+    OC2_DutyCycle = (( (float)2000 / (float)100) * (float)pData -> absSpeed)
+            - 0.5;
     DRV_OC0_PulseWidthSet(OC2_DutyCycle);
     
     // Calcul pour la conversion de la valeur de pData.absSpeed en nombre
     // d'impulsions
-    OC3_DutyCycle = (((float)8999 / (float)180) * (float)pData -> absAngle)
-            + 3000.5;
+    OC3_DutyCycle = (((float)9000 / (float)180) * (float)pData -> absAngle)
+            + 2999.5;
     DRV_OC1_PulseWidthSet(OC3_DutyCycle);
     //DRV_OC1_CompareValuesDualSet(OC3_DutyCycle, 2999 );
 }

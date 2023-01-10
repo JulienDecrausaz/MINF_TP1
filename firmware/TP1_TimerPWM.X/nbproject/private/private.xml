@@ -2,6 +2,19 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/microchip/harmony/v2_06/apps/MINF/TP/TP1_PWM/firmware/src/gestPWM.c</file>
+            <file>file:/C:/microchip/harmony/v2_06/apps/MINF/TP/TP1_PWM/firmware/src/app.c</file>
+            <file>file:/C:/microchip/harmony/v2_06/apps/MINF/TP/TP1_PWM/firmware/src/app.h</file>
+            <file>file:/C:/microchip/harmony/v2_06/apps/MINF/TP/TP1_PWM/firmware/src/gestPWM.h</file>
+            <file>file:/C:/microchip/harmony/v2_06/apps/MINF/TP/TP1_PWM/firmware/src/system_config/default/system_interrupt.c</file>
+            <file>file:/C:/microchip/harmony/v2_06/apps/MINF/TP/TP1_PWM/firmware/src/system_config/default/framework/driver/oc/drv_oc_static.h</file>
+            <file>file:/C:/microchip/harmony/v2_06/apps/MINF/TP/TP1_PWM/firmware/src/system_config/default/system_exceptions.c</file>
+            <file>file:/C:/microchip/harmony/v2_06/bsp/pic32mx_skes/bsp.c</file>
+            <file>file:/C:/microchip/harmony/v2_06/bsp/pic32mx_skes/bsp.h</file>
+            <file>file:/C:/microchip/harmony/v2_06/apps/MINF/Exercice/Ex5_2/firmware/src/system_config/default/system_interrupt.c</file>
+            <file>file:/C:/microchip/harmony/v2_06/apps/MINF/Exercice/Ex5_2/firmware/src/app.c</file>
+            <file>file:/C:/microchip/harmony/v2_06/apps/MINF/Exercice/Ex5_2/firmware/src/app.h</file>
+        </group>
     </open-files>
 </project-private>
